@@ -1,4 +1,4 @@
-const Ride = require("../models/Ride");
+const { Ride } = require("../models/Ride");
 
 exports.getRides = async (req, res) => {
   try {
