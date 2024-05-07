@@ -1,4 +1,5 @@
-const { Park } = require("../models");
+
+const { Park } = require("../models/Park");
 
 exports.getParks = async (req, res) => {
   try {
