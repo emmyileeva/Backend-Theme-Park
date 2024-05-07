@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const rideSchema = new mongoose.Schema({
+
   name: {
     type: String,
     required: true,
@@ -20,6 +21,7 @@ const rideSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+
 });
 
 const Ride = mongoose.model("Ride", rideSchema);

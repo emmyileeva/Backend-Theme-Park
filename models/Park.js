@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const parkSchema = new mongoose.Schema({
-  name: { type: String, require: true },
+  name: { type: String, required: true },
   location: { type: String, required: true },
   description: { type: String, required: true },
   admissionPrice: { type: String, required: true },
