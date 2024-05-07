@@ -1,0 +1,13 @@
+const mongoose = require('mongoose');
+const parkShcema = new mongoose.Schema({
+    name: { type: String, require: true },
+    location: { type: String, required: true },
+    description: { type: String, required: true },
+    admissionPrice: { type: String, required: true },
+    capacity: { type: String, required: true }
+
+})
+
+const park = mongooose.model('Park', parkSchema)
+
+module.exports = Park
