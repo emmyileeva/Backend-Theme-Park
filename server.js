@@ -17,4 +17,8 @@ app.use(morgan("dev"));
 
 app.use("/parks", parksRouter);
 
+app.get("/", (req, res) => {
+    res.send("Welcome to your Express backend!");
+  });
+
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
