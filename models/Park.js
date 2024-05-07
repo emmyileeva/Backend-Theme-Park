@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const parkSchema = new mongoose.Schema({
-  name: { type: String, require: true },
+  name: { type: String, required: true },
   location: { type: String, required: true },
   description: { type: String, required: true },
   admissionPrice: { type: String, required: true },
   capacity: { type: String, required: true },
 });
 
-const park = mongooose.model("Park", parkSchema);
+const Park = mongoose.model("Park", parkSchema);
 
 module.exports = Park;

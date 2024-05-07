@@ -1,5 +1,5 @@
 const express = require("express");
-const { Park } = require("../models");
+const { Park } = require("../models/park");
 
 const index = async (req, res, next) => {
     try {
