@@ -6,8 +6,8 @@ const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const authRouter = require("./routes/auth");
 
+const ridesRouter = require("./routes/rides")
 const parksRouter = require("./routes/parks");
 
 app.use(express.urlencoded({ extended: true }));
@@ -16,5 +16,11 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use("/parks", parksRouter);
+app.use("/rides", ridesRouter);
+
+
+app.get("/", (req, res) => {
+    res.send("Welcome to your Express backend!");
+  });
 
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));

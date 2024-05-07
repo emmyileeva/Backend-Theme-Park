@@ -1,54 +1,14 @@
+
 const express = require("express");
 const { Park } = require("../models/park");
 
-const index = async (req, res, next) => {
-    try {
-        res.json(await Park.find({}));
-    } catch (error) {
-        res.status(400).json(error);
-    }
+
+exports.getParks = async (req, res) => {
+  try {
+    const parks = await Park.find();
+    res.status(200).json(parks);
+  } catch (error) {
+    console.error("Error fetching parks:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
-
-const create = async (req, res, next) => {
-    try{
-        res.json(await Park.create(req.body));
-    } catch (error) {
-        res.status(400).json(error);
-    }
-}
-
-const show = async (req, res, next) => {
-    try {
-        res.json(await Park.findById(req.params.id));
-    } catch (error) {
-        res.status(400).json(error);
-    }
-}
-
-const  destroy = async (req,res,next) => {
-    try {
-        res.json(await Park.findByIdAndDelete(req.params.id));
-      } catch (error) {
-        res.status(400).json(error);
-      }
-}
-
-const update = async (req, res, next) => {
-    try {
-        res.json(
-          await Park.findByIdAndUpdate(req.params.id, req.body, {new:true})
-        );
-      } catch (error) {
-        res.status(400).json(error);
-      }
-}
-
-
-
-module.exports = {
-    index,
-    create,
-    show,
-    delete: destroy,
-    update
-}
