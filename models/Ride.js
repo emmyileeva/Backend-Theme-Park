@@ -1,10 +1,27 @@
 const mongoose = require("mongoose");
-const parkSchema = new mongoose.Schema({
-  name: { type: String, require: true },
-  description: { type: String, required: true },
-  thrilledLevel: { type: Number, required: true },
+
+const rideSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  description: String,
+  thrillLevel: {
+    type: String,
+    enum: ["Low", "Medium", "High"],
+  },
+  heightRestriction: Number,
+  capacity: Number,
+  park: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Park",
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const park = mongooose.model("Ride", rideSchema);
+const Ride = mongoose.model("Ride", rideSchema);
 
 module.exports = Ride;

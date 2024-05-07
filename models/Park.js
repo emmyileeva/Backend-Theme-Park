@@ -8,6 +8,6 @@ const parkSchema = new mongoose.Schema({
   capacity: { type: String, required: true },
 });
 
-const park = mongooose.model("Park", parkSchema);
+const Park = mongoose.model("Park", parkSchema);
 
 module.exports = Park;
