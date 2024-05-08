@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
+const mongoose = require("mongoose")
 
 
 const ridesRouter = require("./routes/rides")
@@ -15,8 +16,8 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use("/parks", parksRouter);
-app.use("/rides", ridesRouter);
+app.get("/parks", parksRouter);
+app.get("/rides", ridesRouter);
 
 
 
