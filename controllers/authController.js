@@ -1,11 +1,12 @@
 const jwt = require("jsonwebtoken");
 const { hashPassword, comparePassword } = require("../middleware/auth");
 
-const { User } = require("../models/User");
+const User  = require("../models/User");
 
 
 
 const Register = async (req, res) => {
+  console.log(User)
   try {
     const { username, email, password } = req.body;
     const existingUser = await User.findOne({ $or: [{ username }, { email }] });
