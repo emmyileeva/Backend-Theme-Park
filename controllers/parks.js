@@ -5,7 +5,7 @@ const Park = require("../models/Park");
 
 exports.getParks = async (req, res) => {
   try {
-    const parks = res.json(await Park.find());
+    const parks = await Park.find();
     res.status(200).json(parks);
   } catch (error) {
     console.error("Error fetching parks:", error);
