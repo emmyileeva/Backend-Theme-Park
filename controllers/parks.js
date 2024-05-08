@@ -1,6 +1,6 @@
 
 const express = require("express");
-const { Park } = require("../models/park");
+const { Park } = require("../models/Park");
 
 
 exports.getParks = async (req, res) => {
