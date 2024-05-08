@@ -1,8 +1,12 @@
-const mongoose = require('mongoose');
-const {DATABASE_URI} = process.env
+const mongoose = require("mongoose");
 require("dotenv").config();
 
-mongoose.connect(DATABASE_URI)
+const { DATABASE_URI } = process.env;
+
+mongoose.connect(DATABASE_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 mongoose.connection
   .on("open", () => console.log("You are connected to mongoose"))
